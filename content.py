@@ -36,7 +36,7 @@ def sort_train_labels_knn(Dist, y):
     """
 
     y_sorted = y[np.argsort(Dist, kind='mergesort')]
-    print('Sorted')
+
     return y_sorted
 
 
@@ -68,9 +68,6 @@ def classification_error(p_y_x, y_true):
     """
 
     max_p = p_y_x.shape[1] - 1 - np.argmax(np.flip(p_y_x, 1), axis=1)
-    print(np.bincount(max_p))
-    for i in range(max_p.shape[0]):
-        print(f"pred {max_p[i]} true {y_true[i]}")
     error = np.count_nonzero(max_p - y_true)
 
     return np.true_divide(error, y_true.shape[0])
