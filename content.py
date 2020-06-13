@@ -22,6 +22,8 @@ def hamming_distance(X, X_train):
     return M
 
 
+# TODO EUCLIDEAN DISTANCE
+
 def sort_train_labels_knn(Dist, y):
     """
     Posortuj etykiety klas danych treningowych *y* względem prawdopodobieństw
