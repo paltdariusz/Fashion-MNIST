@@ -1,17 +1,17 @@
 # Fashion-MNIST 
 
 ## Introduction
-**Image classification** using **KNN** and **DOPISAĆ**. Fashion-MNIST is a dataset of Zalando's article images - consisting
+**Image classification** using **KNN** and **CNN**. Fashion-MNIST is a dataset of Zalando's article images - consisting
 of a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated 
 with a label from 10 classes. More about [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist).
-Our goal is to build a **K-NN model** and a **dopisz** to classify an image with cloth to which class it belongs.
+Our goal is to build a **K-NN model** and a **CNN** to classify an image with cloth to which class it belongs.
 
 
 ## Methods
 
 ### K-NN
 
-### sth
+### CNN
 
 ## Results
 ### KNN
@@ -35,7 +35,7 @@ This distance function was tested on smaller set containing only *100* images, b
 Training time: 41 seconds (On full set it would probablly take about 4100 seconds)
 Accuracy: 59% =>  59 of 100
 Error: 41% =>  41 of 100
-Best k:  3[tested range: <1,199>]
+Best k: 3 [tested range: <1,199>]
 Distance: Hamming
 ```
 
@@ -47,14 +47,14 @@ Comparing our results to the [benchmark](http://fashion-mnist.s3-website.eu-cent
 6th place. The first place is 0.73 percent point ahead in accuracy. 
 
 
-### sth
+### CNN
 
 
 ## Built With
 
 * [Python 3.8](http://docs.python.org/3/) - Programming language
 * [numpy](https://www.numpy.org/doc/) - Packge for scientific computing with Python
-* [keras](https://keras.io/api/) - Deep learning API 
+* [PyTorch](https://pytorch.org/docs/stable/) - Deep learning tensor library
 
 
 ## Authors
