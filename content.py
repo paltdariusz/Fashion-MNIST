@@ -18,11 +18,31 @@ def hamming_distance(X, X_train):
     :return: macierz odległości pomiędzy obiektami z "X" i "X_train" N1xN2
     """
     M = (np.ones_like(X) - X) @ X_train.T + X @ (np.ones_like(X_train) - X_train).T
-
+    print(M)
     return M
 
 
-# TODO EUCLIDEAN DISTANCE
+def euclidean_distance(X, X_train):
+    """
+    Zwróć odległość Euklidesa dla obiektów ze zbioru *X* od obiektów z *X_train*.
+
+    :param X: zbiór porównywanych obiektów N1xD
+    :param X_train: zbiór obiektów do których porównujemy N2xD
+    :return: macierz odległości pomiędzy obiektami z "X" i "X_train" N1xN2
+    """
+    M = np.zeros((X.shape[0], X_train.shape[0]))
+    for i in range(M.shape[0]):
+        for j in range(M.shape[1]):
+            M[i][j] = np.linalg.norm(X[i] - X_train[j])
+    print(M)
+    return M
+
+
+def hamming(X, X_train):
+    pass
+
+
+# TODO NORMAL DISTANCE
 
 def sort_train_labels_knn(Dist, y):
     """
@@ -93,7 +113,7 @@ def model_selection_knn(X_val, X_train, y_val, y_train, k_values):
     """
 
     errors = np.zeros_like(k_values, dtype='float64')
-    sorted_labels = sort_train_labels_knn(hamming_distance(X_val, X_train), y_train).astype('uint8')
+    sorted_labels = sort_train_labels_knn(euclidean_distance(X_val, X_train), y_train).astype('uint8')
     for i in range(len(errors)):
         prob = p_y_x_knn(sorted_labels, k_values[i])
         errors[i] = classification_error(prob, y_val)

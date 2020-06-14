@@ -20,10 +20,22 @@ Training time: 155 seconds
 Accuracy: 73.55% => 7,355 of 10,000
 Error: 26.45% => 2,645 of 10,000
 Best k: 41 [tested range: <1,199>]
-Distance: Hamming
-
+Distance: Modified Hamming
 ```
-
+```
+Training time: 4,186 seconds
+Accuracy: 85.27% => 8,527 of 10,000
+Error: 14.73% => 1,473 of 10,000
+Best k: 3 [tested range: <1,199>]
+Distance: Euclidean
+```
+```
+Training time: seconds
+Accuracy: % =>  of 10,000
+Error: % =>  of 10,000
+Best k:  [tested range: <1,199>]
+Distance: Hamming
+```
 ### sth
 
 
