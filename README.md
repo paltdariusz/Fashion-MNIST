@@ -30,12 +30,23 @@ Best k: 3 [tested range: <1,199>]
 Distance: Euclidean
 ```
 ```
-Training time: seconds
-Accuracy: % =>  of 10,000
-Error: % =>  of 10,000
-Best k:  [tested range: <1,199>]
+This distance function was tested on smaller set containing only *100* images, because results were below expectations.
+
+Training time: 41 seconds (On full set it would probablly take about 4100 seconds)
+Accuracy: 59% =>  59 of 100
+Error: 41% =>  41 of 100
+Best k:  3[tested range: <1,199>]
 Distance: Hamming
 ```
+
+As we can see, the best result we managed to get is by using **Euclidean distance**. We recived accuracy on level **85.27%**, 
+but the training time took more than an hour, comparing it to **Modified Hamming distance** which took only 155 seconds 
+and accuracy was just 10 percent points lower. 
+
+Comparing our results to the [benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/) we would be on the
+6th place. The first place is 0.73 percent point ahead in accuracy. 
+
+
 ### sth
 
 
@@ -43,7 +54,7 @@ Distance: Hamming
 
 * [Python 3.8](http://docs.python.org/3/) - Programming language
 * [numpy](https://www.numpy.org/doc/) - Packge for scientific computing with Python
-* 
+* [keras](https://keras.io/api/) - Deep learning API 
 
 
 ## Authors
