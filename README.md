@@ -50,6 +50,7 @@ layer to minimalize chance of exsiting negative effect called overfitting (when 
 To prevent overfitting I splitted training set to new training set (80%) and vilidation set (20%). 
 
 What is Conv2D?
+It is a layer in in which a convolutional filter passes (passing window) along an input matrix and it extracts features from image. 
 
 ![Conv2D](docs/conv.gif?raw=True "Conv2D")
 ![Conv2D](docs/conv1.gif?raw=True "Conv2D")
