@@ -30,13 +30,20 @@ if __name__ == '__main__':
 
     # ------------KNN PART------------------------
     if choice != 2:
+        SKIP_HAMMING = True
         print("\n-----!STARTING KNN IT WILL TAKE ~ 1HR!-----")
         k = range(1, 201, 2)
         X_train_n, X_test_n = normalize(X_train.copy(), X_test.copy())
-        hamming, hamming_m, euklidean = KNN.distance_selection_knn(X_test_n, X_train_n, y_test, y_train, k)
         distances = ['Hamming distance', 'Modified Hamming distance', 'Euclidean distance']
-        results = [hamming, hamming_m, euklidean]
-        best = min(hamming[0], hamming_m[0], euklidean[0])
+        if SKIP_HAMMING:
+            hamming_m, euklidean = KNN.distance_selection_knn(X_test_n, X_train_n, y_test, y_train, k, SKIP_HAMMING)
+            results = [hamming_m, euklidean]
+            best = min(hamming_m[0], euklidean[0])
+            del distances[0]
+        else:
+            hamming, hamming_m, euklidean = KNN.distance_selection_knn(X_test_n, X_train_n, y_test, y_train, k)
+            results = [hamming, hamming_m, euklidean]
+            best = min(hamming[0], hamming_m[0], euklidean[0])
         for i in range(len(results)):
             if best == results[i][0]:
                 print("!!BEST ACCURACY!!")

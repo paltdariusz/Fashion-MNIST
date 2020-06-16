@@ -123,7 +123,7 @@ def model_selection_knn(X_val, X_train, y_val, y_train, k_values, f_distance):
     return np.min(errors), k_values[np.argmin(errors)], errors, end - start
 
 
-def distance_selection_knn(X_val, X_train, y_val, y_train, k_values):
+def distance_selection_knn(X_val, X_train, y_val, y_train, k_values, skip_hamming=False):
     """
     Wylicz bład dla różnych *odległości*. Dokonaj selekcji modelu KNN
     wybierając optymalną metodę liczenia *odległości*, tj. taką, dla której wartość błędu jest
@@ -134,18 +134,24 @@ def distance_selection_knn(X_val, X_train, y_val, y_train, k_values):
     :param y_val: etykiety klas dla danych walidacyjnych 1xN1
     :param y_train: etykiety klas dla danych treningowych 1xN2
     :param k_values: wartości parametru k, które mają zostać sprawdzone
+    :param skip_hamming: wartość bool oznaczająca pominięcie liczenia odległości Hamminga
     :return: krotkę tablic składających się z (best_error, best_k, errors, time),
         gdzie "best_error" to najniższy osiągnięty błąd, "best_k" to "k" dla którego błąd był
         najniższy, a "errors" - lista wartości błędów dla kolejnych
         "k" z "k_values" i time - czas trwania
     """
     distance_functions = [hamming_distance, hamming_distance_m, euclidean_distance]
-    distance_names = ["Hamming distance", "Hamming distance_ modified", "Euclidean distance"]
+    distance_names = ["Hamming distance", "modified Hamming distance", "Euclidean distance"]
     results = []
     i = 0
+    if skip_hamming:
+        del distance_functions[0]
+        del distance_names[0]
     for fun in distance_functions:
         print(f"Creating model for {distance_names[i]}..")
         i += 1
         results.append(model_selection_knn(X_val.copy(), X_train.copy(), y_val.copy(), y_train.copy(), k_values, fun))
-
-    return results[0], results[1], results[2]
+    if skip_hamming:
+        return results[0], results[1]
+    else:
+        return results[0], results[1], results[2]

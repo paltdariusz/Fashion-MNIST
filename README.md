@@ -88,15 +88,23 @@ Non-trainable params: 0
 Model accuracy: 0.8999999761581421 (on test set)
 ```
 As we can see, we are achieving 90% accuracy on test set. Comparing this result to [benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/),
-we would get 1st place (second place is ~0.002 percent points behind **big victory**!). Training time on device without 
-CUDA support is about 40~50 minutes (with CUDA would be much faster). 
+we would get 1st place (second place is 0.002 percent points behind **big victory**!). Training time on device without 
+CUDA support is about 40-50 minutes (with CUDA would be much faster).  
 
 ![Model predictions from test set](docs/predictions.png?raw=true "Model predictions from test set")
 
-On image above we can observe how our model classified random images, wi
-
+On image above we can observe how our model classified ten random images and how high was the probability to each class.
+ 
 ![Model predictions from given image](docs/predicted_from_jpg.png?raw=true "Model predictions from given image")
 
+On image above we can observe how our model classified 'test.jpg' and how high was the probability to each class.
+
+| Model type  | Accuracy | Training Time |
+| ------------- | ------------- |
+| KNN  | 85.27% | 01:09:45 |
+| KNN (bench)  | 86.00% | 00:41:53 |
+| CNN | 90.00% | 0:45:13 |
+| Best benchmark| 89.70% | 01:12:39 |
 
 ## Built With
 
