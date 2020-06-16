@@ -30,7 +30,8 @@ Best k: 3 [tested range: <1,199>]
 Distance: Euclidean
 ```
 ```
-This distance function was tested on smaller set containing only *100* images, because results were below expectations.
+This distance function was tested on smaller set containing only *100* images, 
+because results were below expectations.
 
 Training time: 41 seconds (On full set it would probablly take about 4100 seconds)
 Accuracy: 59% =>  59 of 100
@@ -86,11 +87,13 @@ Non-trainable params: 0
 
 Model accuracy: 0.8999999761581421 (on test set)
 ```
-
+As we can see, we are achieving 90% accuracy on test set. Comparing this result to [benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/),
+we would get 1st place (second place is ~0.002 percent points behind **big victory**!). Training time on device without 
+CUDA support is about 40~50 minutes (with CUDA would be much faster). 
 
 ![Model predictions from test set](docs/predictions.png?raw=true "Model predictions from test set")
 
-
+On image above we can observe how our model classified random images, wi
 
 ![Model predictions from given image](docs/predicted_from_jpg.png?raw=true "Model predictions from given image")
 
@@ -100,10 +103,10 @@ Model accuracy: 0.8999999761581421 (on test set)
 * [Python 3.8](http://docs.python.org/3/) - Programming language
 * [numpy](https://www.numpy.org/doc/) - Packge for scientific computing with Python
 * [TensorFlow](https://tensorflow.org/api_docs/) - Deep learning tensor library
-* [PIL](https://pillow.readthedocs.io/)
-* [OpenCV](https://docs.opencv.org/master/d6/d00/tutorial_py_root.html)
-* [scikit-image](https://scikit-image.org/docs/dev/index.html)
-* [matplotlib](https://matplotlib.org/3.2.1/contents.html)
+* [PIL](https://pillow.readthedocs.io/) - Python Imaging Library
+* [OpenCV](https://docs.opencv.org/master/d6/d00/tutorial_py_root.html) - Computer vision algorithms library
+* [scikit-image](https://scikit-image.org/docs/dev/index.html) - Image processing library
+* [matplotlib](https://matplotlib.org/3.2.1/contents.html) - Vizualization with Python
 
 ## Authors
 

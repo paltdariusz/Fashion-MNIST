@@ -140,8 +140,12 @@ def distance_selection_knn(X_val, X_train, y_val, y_train, k_values):
         "k" z "k_values" i time - czas trwania
     """
     distance_functions = [hamming_distance, hamming_distance_m, euclidean_distance]
+    distance_names = ["Hamming distance", "Hamming distance_ modified", "Euclidean distance"]
     results = []
+    i = 0
     for fun in distance_functions:
+        print(f"Creating model for {distance_names[i]}..")
+        i += 1
         results.append(model_selection_knn(X_val.copy(), X_train.copy(), y_val.copy(), y_train.copy(), k_values, fun))
 
     return results[0], results[1], results[2]
