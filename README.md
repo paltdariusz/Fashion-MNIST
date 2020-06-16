@@ -12,6 +12,37 @@ Our goal is to build a **K-NN model** and a **CNN** to classify an image of clot
 ### K-NN
 
 ### CNN
+```
+Model summary
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 26, 26, 32)        320
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 13, 13, 32)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 13, 13, 32)        0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 11, 11, 64)        18496
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 5, 5, 64)          0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 3, 3, 64)          36928
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 3, 3, 64)          0
+_________________________________________________________________
+flatten (Flatten)            (None, 576)               0
+_________________________________________________________________
+dense (Dense)                (None, 64)                36928
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                650
+=================================================================
+Total params: 93,322
+Trainable params: 93,322
+Non-trainable params: 0
+```
 
 ## Results
 ### KNN
@@ -49,37 +80,6 @@ Comparing our results to the [benchmark](http://fashion-mnist.s3-website.eu-cent
 
 
 ### CNN
-```
-Model summary
-
-Model: "sequential"
-_________________________________________________________________
-Layer (type)                 Output Shape              Param #
-=================================================================
-conv2d (Conv2D)              (None, 26, 26, 32)        320
-_________________________________________________________________
-max_pooling2d (MaxPooling2D) (None, 13, 13, 32)        0
-_________________________________________________________________
-dropout (Dropout)            (None, 13, 13, 32)        0
-_________________________________________________________________
-conv2d_1 (Conv2D)            (None, 11, 11, 64)        18496
-_________________________________________________________________
-max_pooling2d_1 (MaxPooling2 (None, 5, 5, 64)          0
-_________________________________________________________________
-conv2d_2 (Conv2D)            (None, 3, 3, 64)          36928
-_________________________________________________________________
-dropout_1 (Dropout)          (None, 3, 3, 64)          0
-_________________________________________________________________
-flatten (Flatten)            (None, 576)               0
-_________________________________________________________________
-dense (Dense)                (None, 64)                36928
-_________________________________________________________________
-dense_1 (Dense)              (None, 10)                650
-=================================================================
-Total params: 93,322
-Trainable params: 93,322
-Non-trainable params: 0
-```
 
 ```
 313/313 [==============================] - 1s 3ms/step - loss: 0.2780 - accuracy: 0.9000
@@ -103,8 +103,27 @@ On image above we can observe how our model classified 'test.jpg' and how high w
 | :--- | :---: | ---: |
 | KNN  | 85.27% | 01:09:45 |
 | KNN (bench)  | 86.00% | 00:41:53 |
-| CNN | 90.00% | 0:45:13 |
+| CNN | 90.00% | 00:45:13 |
 | Best benchmark| 89.70% | 01:12:39 |
+
+## Usage
+1. Download project typing to terminal/cmd `git clone https://github.com/paltdariusz/Fashion-MNIST.git`
+2. Go to the downloaded directory `cd Fashion-MNIST`
+3. Download missing obligatory [extensions](##-Built-With) 
+4. Run program by typing into cmd/terminal `python main.py`
+5. Select which models you want to train (KNN, CNN, BOTH)
+   **TRAINING KNN TAKES ABOUT 1 HOUR! IF YOU WANT TO SEE CNN TRAINING DELETE [THIS](utils/cnn_model.h5) FILE**
+   **TO RUN FULL KNN YOU NEED TO CHANGE IN [MAIN](main.py) LINE 6 VARIABLE `SKIP_HAMMING` TO `False`**
+6. After training CNN (if chosen) you will be ask to enter filename of your **own** picture to classify (if you dont have I've put 'test.jpg' to directory)
+   **If you want to check your own image put it into this directory and when program asks you write it filename.extension**
+7. You can find trained model [here](utils/cnn_model.h5), if you want to use it you'll have to do: 
+   ```
+   from tensorflow import keras
+   model = model = keras.models.load_model('utils/cnn_model.h5')
+   ```
+   **After this you will be able to use trained model functionality!**
+
+Training and test data are in: [data/fashion/](data/fashion) and will be **automatically downloaded if you follow instruction!**
 
 ## Built With
 

@@ -3,6 +3,7 @@ import numpy as np
 from utils import mnist_reader, augmentation as aug, CNNetwork as cnn, image as img, KNN
 
 CLASS_NAMES = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+SKIP_HAMMING = True
 
 
 def load_data():
@@ -30,7 +31,6 @@ if __name__ == '__main__':
 
     # ------------KNN PART------------------------
     if choice != 2:
-        SKIP_HAMMING = True
         print("\n-----!STARTING KNN IT WILL TAKE ~ 1HR!-----")
         k = range(1, 201, 2)
         X_train_n, X_test_n = normalize(X_train.copy(), X_test.copy())
