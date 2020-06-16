@@ -6,19 +6,29 @@ CLASS_NAMES = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 
 
 
 def plot_image(i, predictions_array, true_label, img):
-    predictions_array, true_label, img = predictions_array, true_label[i], img[i]
+    if true_label is not None:
+        predictions_array, true_label, img = predictions_array, true_label[i], img[i]
+
     plt.grid(False)
     plt.xticks([])
     plt.yticks([])
-
-    plt.imshow(img.reshape(28, 28), cmap=plt.cm.binary)
+    if true_label is not None:
+        plt.imshow(img.reshape(28, 28), cmap=plt.cm.binary)
+    else:
+        plt.imshow(img)
 
     predicted_label = np.argmax(predictions_array)
-    if predicted_label == true_label:
-        color = 'green'
+    if true_label is not None:
+        if predicted_label == true_label:
+            color = 'green'
+        else:
+            color = 'red'
     else:
-        color = 'red'
-    msg = f"{CLASS_NAMES[predicted_label]} {100 * np.max(predictions_array):2.0f}% ({CLASS_NAMES[true_label]})"
+        color = 'blue'
+    if true_label is not None:
+        msg = f"{CLASS_NAMES[predicted_label]} {100 * np.max(predictions_array):2.0f}% ({CLASS_NAMES[true_label]})"
+    else:
+        msg = f"Predicted: {CLASS_NAMES[predicted_label]} {100 * np.max(predictions_array):2.0f}%"
     plt.xlabel(msg, color=color)
 
 
@@ -55,7 +65,7 @@ def image_processing(name):
     r_img = ImageOps.invert(r_img)
     r_img = r_img.convert('L')
     r_img = np.array(r_img) / 255
-    return r_img
+    return np.array(img), r_img
 
 
 if __name__ == '__main__':

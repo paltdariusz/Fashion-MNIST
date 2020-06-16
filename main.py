@@ -77,12 +77,13 @@ if __name__ == '__main__':
         plt.show()
         img_name = input("Enter image name [name.jpg](if you don't have any enter: 'test.jpg'): ")
 
-        new_image = img.image_processing(img_name)
+        org_img, new_image = img.image_processing(img_name)
         new_image = new_image.reshape((1, 28, 28, 1))
         predictions_single = cnn.predict(model, new_image)
         plt.figure(figsize=(8, 8))
         plt.subplot(1, 2, 1)
-        plt.imshow(new_image.reshape((28, 28)), plt.cm.binary)
+        img.plot_image(1, predictions_single[0], None, org_img)
+
         plt.subplot(1, 2, 2)
         img.plot_value_array(1, predictions_single[0])
         _ = plt.xticks(range(10), CLASS_NAMES, rotation=45)
