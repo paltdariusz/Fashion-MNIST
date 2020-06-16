@@ -63,7 +63,7 @@ if __name__ == '__main__':
         print(model.summary())
         # testujemy wyuczony model na danych testowych
         test_loss, test_acc = model.evaluate(X_test_n, y_test)
-        print(f"\nTest acc: {test_acc}")
+        print(f"\n\nModel accuracy: {test_acc}")
         predictions = cnn.predict(model, X_test_n)
         # plot random 10 test images, their labels, and true labels
         plt.figure(figsize=(8, 10))

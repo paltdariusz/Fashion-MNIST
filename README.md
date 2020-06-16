@@ -4,7 +4,7 @@
 **Image classification** using **KNN** and **CNN**. Fashion-MNIST is a dataset of Zalando's article images - consisting
 of a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated 
 with a label from 10 classes. More about [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist).
-Our goal is to build a **K-NN model** and a **CNN** to classify an image with cloth to which class it belongs.
+Our goal is to build a **K-NN model** and a **CNN** to classify an image of cloth to which class it belongs.
 
 
 ## Methods
@@ -48,14 +48,62 @@ Comparing our results to the [benchmark](http://fashion-mnist.s3-website.eu-cent
 
 
 ### CNN
+```
+Model summary
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 26, 26, 32)        320
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 13, 13, 32)        0
+_________________________________________________________________
+dropout (Dropout)            (None, 13, 13, 32)        0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 11, 11, 64)        18496
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 5, 5, 64)          0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 3, 3, 64)          36928
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 3, 3, 64)          0
+_________________________________________________________________
+flatten (Flatten)            (None, 576)               0
+_________________________________________________________________
+dense (Dense)                (None, 64)                36928
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                650
+=================================================================
+Total params: 93,322
+Trainable params: 93,322
+Non-trainable params: 0
+```
+
+```
+313/313 [==============================] - 1s 3ms/step - loss: 0.2780 - accuracy: 0.9000
+
+
+Model accuracy: 0.8999999761581421 (on test set)
+```
+
+
+![Model predictions from test set](docs/predictions.png?raw=true "Model predictions from test set")
+
+
+
+![Model predictions from given image](docs/predicted_from_jpg.png?raw=true "Model predictions from given image")
 
 
 ## Built With
 
 * [Python 3.8](http://docs.python.org/3/) - Programming language
 * [numpy](https://www.numpy.org/doc/) - Packge for scientific computing with Python
-* [PyTorch](https://pytorch.org/docs/stable/) - Deep learning tensor library
-
+* [TensorFlow](https://tensorflow.org/api_docs/) - Deep learning tensor library
+* [PIL](https://pillow.readthedocs.io/)
+* [OpenCV](https://docs.opencv.org/master/d6/d00/tutorial_py_root.html)
+* [scikit-image](https://scikit-image.org/docs/dev/index.html)
+* [matplotlib](https://matplotlib.org/3.2.1/contents.html)
 
 ## Authors
 
