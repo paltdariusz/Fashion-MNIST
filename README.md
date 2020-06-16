@@ -14,7 +14,7 @@ Our goal is to build a **K-NN model from scratch** and a **CNN using tensorflow 
 #### Why KNN?
 K-Nearest Neighbors is one of the most popular non-parametric models, because of its implementation simplicity and it is vary easy to explain it to newbie.
 
-[K-NN](docs/knn1.png?raw=True "KNN")
+![K-NN](docs/knn1.png?raw=True "KNN")
 
 So the idea is quite simple. Our model's predicition is based on training set and also we don't need feature extraction 
 nor learning algorithms to make it work! First thing we have to define is which distance metrics we are going to use. 
@@ -51,13 +51,13 @@ To prevent overfitting I splitted training set to new training set (80%) and vil
 
 What is Conv2D?
 
-[Conv2D](docs/conv.gif?raw=True "Conv2D")
-[Conv2D](docs/conv1.gif?raw=True "Conv2D")
+![Conv2D](docs/conv.gif?raw=True "Conv2D")
+![Conv2D](docs/conv1.gif?raw=True "Conv2D")
 
 What is MaxPooling2D? 
 Reducing a matrix (or matrices) created by an earlier convolutional layer to a smaller matrix.
 Pooling usually involves taking either the maximum or average value across the pooled area.
-[Pooling](docs/Pooling.svg?raw=True "Conv2D")
+![Pooling](docs/Pooling.svg?raw=True "Conv2D")
 
 What is Dense layer?
 It computes `output = activation(dot(input, kernel) + bias)`
