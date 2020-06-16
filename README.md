@@ -111,10 +111,11 @@ On image above we can observe how our model classified 'test.jpg' and how high w
 2. Go to the downloaded directory `cd Fashion-MNIST`
 3. Download missing obligatory [extensions](##-Built-With) 
 4. Run program by typing into cmd/terminal `python main.py`
-5. Select which models you want to train (KNN, CNN, BOTH)
-   **TRAINING KNN TAKES ABOUT 1 HOUR! IF YOU WANT TO SEE CNN TRAINING DELETE [THIS](utils/cnn_model.h5) FILE**
-   **TO RUN FULL KNN YOU NEED TO CHANGE IN [MAIN](main.py) LINE 6 VARIABLE `SKIP_HAMMING` TO `False`**
-6. After training CNN (if chosen) you will be ask to enter filename of your **own** picture to classify (if you dont have I've put 'test.jpg' to directory)
+5. Select which models you want to train (KNN, CNN, BOTH)<br />
+   **TRAINING KNN TAKES ABOUT 1 HOUR! IF YOU WANT TO SEE CNN TRAINING DELETE [THIS](utils/cnn_model.h5) FILE**<br />
+   **TO RUN FULL KNN YOU NEED TO CHANGE IN [MAIN](main.py) LINE 6 VARIABLE<br />
+   `SKIP_HAMMING = True` TO `SKIP_HAMMING = False`**
+6. After training CNN (if chosen) you will be ask to enter filename of your **own** picture to classify (if you dont have I've put 'test.jpg' to directory).<br />
    **If you want to check your own image put it into this directory and when program asks you write it filename.extension**
 7. You can find trained model [here](utils/cnn_model.h5), if you want to use it you'll have to do: 
    ```
