@@ -4,17 +4,36 @@
 **Image classification** using **KNN** and **CNN**. Fashion-MNIST is a dataset of Zalando's article images - consisting
 of a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated 
 with a label from 10 classes. More about [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist).
-Our goal is to build a **K-NN model** and a **CNN** to classify an image of cloth to which class it belongs.
+Our goal is to build a **K-NN model from scratch** and a **CNN using tensorflow library** to classify an image of cloth to which class it belongs.
 
 
 ## Methods
 
 ### K-NN
 
-### CNN
-```
-Model summary
+#### Why KNN?
+K-Nearest Neighbors is one of the most popular non-parametric models, because of its implementation simplicity and it is vary easy to explain it to newbie.
 
+[K-NN](docs/knn1.png?raw=True "KNN")
+
+So the idea is quite simple. Our model's predicition is based on training set and also we don't need feature extraction 
+nor learning algorithms to make it work! First thing we have to define is which distance metrics we are going to use. 
+In our model I've implemented 3 different distance metrics (i.e. Hamming, Modified Hamming and Euclidean). Why? To get a 
+clear view how different metrics affect on results. Next is to calculate distance from our new point to existing points.
+So for example we have in training set 1000 points and one new point (which we want to classify), so we need compute 1000
+distances. Next we want to sort ascending our labels in view of the distance. Now it is time to use our hiperparameter `k-value`.
+Depending on it we are constricting sorted labels, e.g. we have `len(labels) = 1000` and `k = 5` so our new array is `labels = labels[:5]`.
+Our predicted label is one, which occurs the most frequently. That's it! For more info click [here](https://www.youtube.com/watch?v=HVXime0nQeI).
+
+### CNN
+**1. Why CNN?**
+
+
+
+
+
+Model summary
+```
 Model: "sequential"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #
@@ -112,11 +131,11 @@ On image above we can observe how our model classified 'test.jpg' and how high w
 3. Download missing obligatory [extensions](##-Built-With) 
 4. Run program by typing into cmd/terminal `python main.py`
 5. Select which models you want to train (KNN, CNN, BOTH)<br />
-   **TRAINING KNN TAKES ABOUT 1 HOUR! IF YOU WANT TO SEE CNN TRAINING DELETE [THIS](utils/cnn_model.h5) FILE**<br />
+   **TRAINING KNN TAKES ABOUT 1 HOUR! IF YOU WANT TO SEE CNN TRAINING DELETE [THIS](utils/cnn_model.h5) FILE**
    **TO RUN FULL KNN YOU NEED TO CHANGE IN [MAIN](main.py) LINE 6 VARIABLE<br />
    `SKIP_HAMMING = True` TO `SKIP_HAMMING = False`**
 6. After training CNN (if chosen) you will be ask to enter filename of your **own** picture to classify (if you dont have I've put 'test.jpg' to directory).<br />
-   **If you want to check your own image put it into this directory and when program asks you write it filename.extension**
+   **If you want to check your own image, put it into this directory and when program asks you write filename, write it as 'filename.extension'**
 7. You can find trained model [here](utils/cnn_model.h5), if you want to use it you'll have to do: 
    ```
    from tensorflow import keras
