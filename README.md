@@ -100,7 +100,7 @@ On image above we can observe how our model classified ten random images and how
 On image above we can observe how our model classified 'test.jpg' and how high was the probability to each class.
 
 | Model type  | Accuracy | Training Time |
-| ------------- | ------------- |
+| :--- | :---: | ---: |
 | KNN  | 85.27% | 01:09:45 |
 | KNN (bench)  | 86.00% | 00:41:53 |
 | CNN | 90.00% | 0:45:13 |
